@@ -1,10 +1,12 @@
+-Playlist usada no projeto-
+https://youtube.com/playlist?list=PLGFzROSPU9oW1A4DIRhkAMqWUiaQymmTn&si=WhO-UwOrkkk0mFlf
 
 comando -> pip install pandas
 
 
 erro -> from openpyxl.workbook import Workbook
 ModuleNotFoundError: No module named 'openpyxl'
-solução - import openpyxl
+solução -> import openpyxl
 comando -> pip install openpyxl
 
 
