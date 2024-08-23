@@ -1,0 +1,12 @@
+
+comando -> pip install pandas
+
+
+erro -> from openpyxl.workbook import Workbook
+ModuleNotFoundError: No module named 'openpyxl'
+solução - import openpyxl
+comando -> pip install openpyxl
+
+
+
+
