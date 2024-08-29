@@ -8,6 +8,36 @@ import random
 df = pd.read_excel('questions.xlsx')
 questions = df.sample(n=10).values.tolist()
 
+# variaveis globais
+score = 0
+current_question = 0
+
+
+# função verificar resposta
+def check_answer(answer):
+    global score, current_question
+
+    if answer == correct_answer.get():
+        score += 1
+    current_question += 1
+
+    if current_question < len(questions):
+        display_question()
+
+# função exibir próxima pergunta
+def display_question():
+    question, option1, option2, option3, option4, answer = questions[current_question]
+    question_label.config(text=question)
+    option1_btn.config(text=option1, state=tk.NORMAL, command=lambda:check_answer(1))
+    option2_btn.config(text=option2, state=tk.NORMAL, command=lambda:check_answer(2))
+    option3_btn.config(text=option3, state=tk.NORMAL, command=lambda:check_answer(3))
+    option4_btn.config(text=option4, state=tk.NORMAL, command=lambda:check_answer(4))
+
+
+    correct_answer.set(answer)
+
+
+
 # janela interface
 janela=tk.Tk()
 janela.title("Quiz")
@@ -30,7 +60,7 @@ app_label = tk.Label(janela, image=app_icon, bg=background_color)
 app_label.pack(pady=10)
 
 # Componentes da interface
-question_label = tk.Label(janela, text="Pergunta", wraplength=380, bg=background_color, fg=text_color, font=("Arial", 12, "bold"))
+question_label = tk.Label(janela, text="", wraplength=380, bg=background_color, fg=text_color, font=("Arial", 12, "bold"))
 question_label.pack(pady=20)
 
 correct_answer = tk.IntVar()
@@ -52,7 +82,7 @@ play_again_btn = tk.Button(janela, text="Jogar Novamente", width=30, bg=button_c
 play_again_btn.pack(pady=10)
                     
                         
-
+display_question()
 janela.mainloop()
 
 
