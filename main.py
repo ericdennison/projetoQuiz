@@ -41,7 +41,7 @@ def display_question():
 
 # exibir resultado final
 def show_result():
-    messagebox.showinfo("Quiz Finalizado", f"Prabéns! Você compeltou o quiz.\n\nPontuação fina: {score}/{len(questions)}")
+    messagebox.showinfo("Quiz Finalizado", f"Prabéns! Você compeltou o quiz.\n\nPontuação final: {score}/{len(questions)}")
     option1_btn.config(state=tk.DISABLED)
     option2_btn.config(state=tk.DISABLED)
     option3_btn.config(state=tk.DISABLED)
